@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs><linearGradient id="laiton" x1="0.15" y1="0" x2="0.85" y2="1"><stop offset="0" stop-color="#D6B26C"/><stop offset="1" stop-color="#B8914B"/></linearGradient></defs>
+  <rect width="1024" height="1024" rx="230" fill="url(#laiton)"/>
+  <path d="M332 744 L512 284 L692 744" fill="none" stroke="#0B1017" stroke-width="104" stroke-linejoin="miter" stroke-miterlimit="8"/>
+</svg>

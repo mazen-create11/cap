@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CAP</title>
+<meta name="apple-mobile-web-app-title" content="CAP">
+<meta name="theme-color" content="#0B1017">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;800&family=Geist+Mono:wght@500&display=swap" rel="stylesheet">
+<script>
+  // Lanceur : une fois l'icône posée sur l'écran d'accueil, chaque ouverture file directement vers CAP.
+  var CAP = 'https://claude.ai/artifact/KQ5X2D2A1RYizwTvqHdKQe';
+  try { if (localStorage.getItem('cap-pret') === '1' && !/[?&]aide/.test(location.search)) location.replace(CAP); } catch (e) {}
+</script>
+<style>
+  :root { --encre:#0B1017; --s1:#121A26; --ligne:#223044; --laiton:#C8A15A; --txt:#ECEFF4; --t2:#A9B4C3; }
+  * { box-sizing:border-box; margin:0; }
+  html, body { background:var(--encre); color:var(--txt); font:16px/1.6 Geist, -apple-system, sans-serif; -webkit-font-smoothing:antialiased; }
+  main { min-height:100dvh; max-width:440px; margin:0 auto; padding:max(56px, env(safe-area-inset-top)) 24px max(32px, env(safe-area-inset-bottom)); display:flex; flex-direction:column; gap:28px; }
+  .logo { display:flex; align-items:center; gap:2px; font:800 64px/1 Geist; letter-spacing:.02em; }
+  .logo svg { width:56px; height:56px; margin:0 -1px 4px; }
+  .sig { font:500 12px 'Geist Mono', monospace; letter-spacing:.2em; color:var(--laiton); text-transform:uppercase; }
+  ol { list-style:none; padding:0; display:grid; gap:12px; counter-reset:e; }
+  li { counter-increment:e; background:var(--s1); border:1px solid var(--ligne); border-radius:14px; padding:14px 16px 14px 52px; position:relative; color:var(--t2); }
+  li::before { content:counter(e); position:absolute; left:16px; top:14px; width:24px; height:24px; border-radius:7px; background:rgba(200,161,90,.14); color:var(--laiton); font:600 13px/24px 'Geist Mono'; text-align:center; }
+  li b { color:var(--txt); font-weight:600; }
+  .btn { display:flex; align-items:center; justify-content:center; min-height:52px; border-radius:14px; background:linear-gradient(160deg,#D6B26C,#B8914B); color:var(--encre); font:600 17px Geist; text-decoration:none; border:0; width:100%; cursor:pointer; transition:transform .15s ease; }
+  .btn:active { transform:scale(.97); }
+  .note { font-size:14px; color:var(--t2); }
+</style>
+</head>
+<body>
+<main>
+  <div>
+    <div class="logo" aria-label="CAP">C<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M16 92 L50 24 L84 92" fill="none" stroke="#C8A15A" stroke-width="17" stroke-linejoin="miter" stroke-miterlimit="8"/></svg>P</div>
+    <p class="sig" style="margin-top:10px">Cap sur Kedge 2027</p>
+  </div>
+  <ol>
+    <li>Dans Safari, touche <b>Partager</b>, le carré avec la flèche vers le haut.</li>
+    <li>Choisis <b>Sur l'écran d'accueil</b>, puis <b>Ajouter</b>. L'icône laiton apparaît.</li>
+    <li>Reviens ici et touche <b>Ouvrir CAP</b>. Ensuite, l'icône ouvrira CAP directement.</li>
+  </ol>
+  <button class="btn" id="go">Ouvrir CAP</button>
+  <p class="note">CAP s'ouvre dans Safari, où tu es déjà connecté à Claude. Pour revoir cette page : ajoute <b>?aide</b> à l'adresse.</p>
+</main>
+<script>
+  document.getElementById('go').onclick = function () { try { localStorage.setItem('cap-pret', '1'); } catch (e) {} location.href = CAP; };
+</script>
+</body>
+</html>
