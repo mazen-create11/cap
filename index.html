@@ -13,9 +13,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;800&family=Geist+Mono:wght@500&display=swap" rel="stylesheet">
 <script>
-  // Lanceur : une fois l'icône posée sur l'écran d'accueil, chaque ouverture file directement vers CAP.
-  var CAP = 'https://claude.ai/artifact/KQ5X2D2A1RYizwTvqHdKQe';
-  try { if (localStorage.getItem('cap-pret') === '1' && !/[?&]aide/.test(location.search)) location.replace(CAP); } catch (e) {}
+  // CAP a maintenant sa propre app (Cloudflare Pages). Un lien ou un favori ouvre CAP directement ;
+  // l'ancienne icône d'écran d'accueil (ce lanceur) affiche comment installer la nouvelle.
+  var CAP = 'https://cap-mazen.pages.dev/';
+  var ancienneIcone = window.navigator.standalone === true || (window.matchMedia && matchMedia('(display-mode: standalone)').matches);
+  if (!ancienneIcone && !/[?&]aide/.test(location.search)) location.replace(CAP);
 </script>
 <style>
   :root { --encre:#0B1017; --s1:#121A26; --ligne:#223044; --laiton:#C8A15A; --txt:#ECEFF4; --t2:#A9B4C3; }
@@ -40,15 +42,13 @@
     <div class="logo" aria-label="CAP">C<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M16 92 L50 24 L84 92" fill="none" stroke="#C8A15A" stroke-width="17" stroke-linejoin="miter" stroke-miterlimit="8"/></svg>P</div>
   </div>
   <ol>
-    <li>Dans Safari, touche <b>Partager</b>, le carré avec la flèche vers le haut.</li>
-    <li>Choisis <b>Sur l'écran d'accueil</b>, puis <b>Ajouter</b>. L'icône laiton apparaît.</li>
-    <li>Reviens ici et touche <b>Ouvrir CAP</b>. Ensuite, l'icône ouvrira CAP directement.</li>
+    <li>Touche <b>Ouvrir CAP</b>, puis entre ton mot de passe.</li>
+    <li>Dans Safari : <b>Partager</b>, puis <b>Sur l'écran d'accueil</b>, puis <b>Ajouter</b>.</li>
+    <li>Ouvre CAP depuis la nouvelle icône et entre le mot de passe une dernière fois. Supprime cette ancienne icône.</li>
   </ol>
-  <button class="btn" id="go">Ouvrir CAP</button>
-  <p class="note">CAP s'ouvre dans Safari, où tu es déjà connecté à Claude. Pour revoir cette page : ajoute <b>?aide</b> à l'adresse.</p>
+  <a class="btn" id="go" href="https://cap-mazen.pages.dev/" target="_blank" rel="noopener">Ouvrir CAP</a>
+  <p class="note">CAP s'ouvre maintenant en plein écran, sans Claude, et marche hors ligne.</p>
 </main>
-<script>
-  document.getElementById('go').onclick = function () { try { localStorage.setItem('cap-pret', '1'); } catch (e) {} location.href = CAP; };
-</script>
+
 </body>
 </html>
